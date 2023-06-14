@@ -3,11 +3,22 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@service/*": ["src/service/*"],
-      "@router/*": ["src/router/*"],
-      "@pages/*": ["src/pages/*"],
-    }
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@service/*": [
+        "src/service/*"
+      ],
+      "@router/*": [
+        "src/router/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ]
+    },
+    "jsx": "preserve"
   }
 }
