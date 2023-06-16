@@ -18,7 +18,7 @@ async function validation(idUrl :any) {
 result = await validation(id);
 
 if(result?.access){
-  // localStorage.setItem('clave', 'test');
+  localStorage.setItem('clave', 'test');
   return Astro.redirect('/survey');
 }
 
