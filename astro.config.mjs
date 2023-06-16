@@ -4,8 +4,11 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
-  integrations: [vue()]
+  output: 'server',
+  integrations: [vue()],
+  experimental: {
+    redirects: true
+  },
 });
 export async function getStaticPaths() {
   const pages = [{

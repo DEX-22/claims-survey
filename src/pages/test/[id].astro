@@ -1,48 +1,31 @@
 ---
-import axios from 'axios';
 
-import amgApi from '../../sevices/index.service';
+import Service from '../../sevices/service';
 
-
-const urlamg = import.meta.env.BACKEND_AMG_URL;
-// const { cookies, params, props, locals, request, url, redirect, response, slots, self } = Astro;
 const { id } = Astro.params;
+let result : any;
 
-interface ParamI {
-    id: number;
-}
-const paramsA: ParamI = { id: 1 };
-const p: { params: ParamI } = {
-  params: paramsA
-};
-const listQuestions = [];
-
-class Service {
-  async getNum() {
-    const result = await amgApi.get("/survey/get-questions");
-    return result;
-  }
+async function validation(idUrl :any) {
+  try {
+    const { data } = await Service.validateAccess({id: idUrl});
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  } 
 }
 
-async function callApi() {
-  const service = new Service();
-  const { data }  = await service.getNum();
-  listQuestions.push(...data);  
-}
-await callApi();
+result = await validation(id);
 
+if(result?.access){
+  // localStorage.setItem('clave', 'test');
+  return Astro.redirect('/survey');
+}
 
 
 ---
 
-<h1>{id}</h1>
+<h3>ID de la URL: {id}</h3>
+<p>RESULT : {result?.access}</p>
 
-<!-- <ul>
-    {
-        listQuestions.map(q => (
-        <li>{q.question}</li>
-        ))
-    }
-</ul> -->
-    
-<h1>{ urlamg }</h1>
+   
