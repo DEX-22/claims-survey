@@ -20,8 +20,10 @@ result = await validation(id);
 if(result?.access){
   localStorage.setItem('clave', 'test');
   return Astro.redirect('/survey');
+} else {
+  localStorage.setItem('clave', 'no access');
+  return Astro.redirect('/survey/no-access');
 }
-
 
 ---
 
