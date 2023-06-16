@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-
 import vue from "@astrojs/vue";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
-  integrations: [vue()]
+  integrations: [vue(), tailwind()]
 });
 export async function getStaticPaths() {
   const pages = [{

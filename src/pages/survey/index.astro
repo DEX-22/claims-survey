@@ -1,5 +1,7 @@
 ---
 // import Astro from "@router/index";
+import Button from "@components/Button.vue";
+
 
 // clientAddress
 const {cookies,params,props,locals,request,url,redirect,response,slots,self} = Astro;
@@ -53,6 +55,9 @@ function onLoad(){
 <pre >
         esta sera la encuesta {url} {params.slug} {num}
 </pre>
+
+<Button /> 
+
 
 <button @click="logMessage">
 asssssss
